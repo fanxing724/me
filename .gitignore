@@ -3,3 +3,8 @@ node_modules/
 .dev.vars
 .env
 *.log
+
+# Local Cloudflare account bindings (no credentials in source backup)
+wrangler.deploy.jsonc
+private/
+*credentials*

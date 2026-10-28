@@ -1,0 +1,230 @@
+{
+  "data": {
+    "github": "fanxing724",
+    "web_info": {
+      "title": "番星 · 个人主页",
+      "icon": "/static/star.svg"
+    },
+    "quoteData": "代码交给 AI，想法留给自己。",
+    "timelineData": [],
+    "projectsData": [],
+    "sitesData": [
+      {
+        "name": "番星的科技记录站",
+        "desc": "AI、建站和日常折腾，写在自己的博客里。",
+        "url": "https://xingbox.me/",
+        "category": "blog",
+        "mark": "✎",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "资源访问代理",
+        "desc": "方便在国内访问国外网站、获取资源。",
+        "url": "https://proxy.xingbox.me/",
+        "category": "network",
+        "mark": "↗",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "资源下载与传输",
+        "desc": "使用美国小服务器下载资源，支持点对点传输。",
+        "url": "https://download.xingbox.me/",
+        "category": "network",
+        "mark": "↓",
+        "note": "美国节点",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "SpeedLens · 网络透镜",
+        "desc": "快速查看出口 IP，了解网络访问限制。",
+        "url": "https://speedlens.onrender.com/",
+        "category": "network",
+        "mark": "◎",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "AstrBot 插件下载",
+        "desc": "快速下载 AstrBot 插件，提供下载加速入口。",
+        "url": "https://xgh.xingbox.me/",
+        "category": "network",
+        "mark": "AB",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "Cloudflare 代理方案",
+        "desc": "基于 Cloudflare 的代理方案，联系我获取 Token。",
+        "url": "https://me-you.de5.net/",
+        "category": "network",
+        "mark": "CF",
+        "note": "需联系获取 Token",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "Java 在线编译器",
+        "desc": "在浏览器里编写、编译和运行 Java 代码。",
+        "url": "https://java.xingbox.me/",
+        "category": "dev",
+        "mark": "J",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "C 语言在线编译器",
+        "desc": "在浏览器里编写、编译和运行 C 代码。",
+        "url": "https://c.xingbox.me/",
+        "category": "dev",
+        "mark": "C",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "Pulse · 网站保活",
+        "desc": "使用美国服务器模拟访问，为站点保活。",
+        "url": "https://pulse.xingbox.me/",
+        "category": "dev",
+        "mark": "P",
+        "note": "美国节点",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "AI Chat · 网页聊天",
+        "desc": "打开浏览器，与 AI 聊天。",
+        "url": "https://aichat.xingbox.me/",
+        "category": "ai",
+        "mark": "AI",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "云端存储空间",
+        "desc": "基于魔搭社区容器的存储空间。",
+        "url": "https://cloud.xingbox.me/",
+        "category": "ai",
+        "mark": "☁",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "免费 AI 额度收集",
+        "desc": "收集免费 AI 模型额度的相关网站与入口。",
+        "url": "https://gy.xingbox.me/",
+        "category": "ai",
+        "mark": "✦",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "在线共享粘贴板",
+        "desc": "在线粘贴、共享内容，方便跨端传递。",
+        "url": "https://clipboard-share-zone.nocode.host/",
+        "category": "ai",
+        "mark": "▤",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "智能体共享空间",
+        "desc": "与云端智能体共享内容的入口。",
+        "url": "https://ai-storage-network.nocode.host/",
+        "category": "ai",
+        "mark": "AS",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "番星壁纸库",
+        "desc": "浏览和寻找喜欢的壁纸，由第三方维护。",
+        "url": "https://tu.xingbox.me/",
+        "category": "daily",
+        "mark": "▧",
+        "note": "第三方维护",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "临时邮箱",
+        "desc": "临时邮箱入口，按需使用。",
+        "url": "https://mail.xingbox.me/",
+        "category": "daily",
+        "mark": "@",
+        "note": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "个人小站",
+        "desc": "星轨手记，另一个个人角落",
+        "url": "https://fanxing724.github.io/",
+        "icon": "fas fa-star",
+        "category": "daily",
+        "note": ""
+      },
+      {
+        "name": "GitHub",
+        "desc": "我的代码与开源主页",
+        "url": "https://github.com/fanxing724",
+        "icon": "fab fa-github",
+        "category": "profile",
+        "note": ""
+      },
+      {
+        "name": "魔搭 ModelScope",
+        "desc": "魔搭社区的个人主页",
+        "url": "https://www.modelscope.cn/profile/fanxing724",
+        "icon": "fas fa-cube",
+        "category": "profile",
+        "note": ""
+      },
+      {
+        "name": "Gitee",
+        "desc": "Gitee 上的个人主页",
+        "url": "https://gitee.com/knight3fax",
+        "icon": "fas fa-code",
+        "category": "profile",
+        "note": ""
+      },
+      {
+        "name": "CNB",
+        "desc": "云原生开发社区主页",
+        "url": "https://cnb.cool/u/fanxing724",
+        "icon": "fas fa-cloud",
+        "category": "profile",
+        "note": ""
+      },
+      {
+        "name": "AgentScope",
+        "desc": "AgentScope 社区主页",
+        "url": "https://platform.agentscope.io/users/019ec48a-a08e-7554-8293-c0e138a8314d",
+        "icon": "fas fa-star",
+        "category": "profile",
+        "note": ""
+      }
+    ],
+    "skillsData": [],
+    "socialData": [],
+    "tagsData": [
+      "好奇心驱动",
+      "与 AI 一起造物",
+      "日常折腾"
+    ],
+    "imagesData": [
+      {
+        "avatar": "/static/star.svg"
+      }
+    ],
+    "profileData": {
+      "statusTitle": "番星",
+      "statusEmoji": "✳",
+      "avatarDecorations": []
+    },
+    "locationData": {
+      "place": "互联网的某个角落",
+      "workStatus": "把想法慢慢做成日常"
+    },
+    "ice": false,
+    "thema": true
+  },
+  "last_time": "2026-10-28T06:27:08.637790+00:00"
+}

@@ -11,10 +11,9 @@
   "kv_namespaces": [
     {
       "binding": "MY_HOME_KV",
-      "id": "24f1e7ee1df1411da071597efb9f1475"
+      "id": "00000000000000000000000000000000"
     }
   ],
-  "account_id": "d1ea180b28ef61bcaeb96c9009b07f4f",
   "routes": [
     {
       "pattern": "724520.xyz",

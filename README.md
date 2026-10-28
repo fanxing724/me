@@ -1,3 +1,25 @@
+# 番星 · 极光个人主页与站点工作台
+
+部署在 [724520.xyz](https://724520.xyz/) 的个人主页，基于 [IonRh/HomePage](https://github.com/IonRh/HomePage) 修改，保留原项目 MIT 许可。
+
+- 极光背景、居中个人资料、17 个网站与服务及 5 个独立社区主页入口。
+- 网站按网络与资源、代码与运维、AI 与共享、日常工具分类。
+- 网页后台支持添加、编辑、排序、分类、维护说明、个人资料、图片及 JSON 备份。
+- 后台采用 Cookie 会话，管理员密码只在 Cloudflare KV 内保存加盐哈希。
+- 运行于 Cloudflare Workers Static Assets + KV，无常驻服务器。
+
+源码入口为 `worker.mjs` 与 `public/`；后台源文件在 `admin/`，修改 HTML 后运行 `python3 tools/build-admin.py`。
+
+`wrangler.jsonc` 仅提供配置模板，KV ID 为占位符。实际账号绑定放在被 Git 忽略的 `wrangler.deploy.jsonc`。部署使用 `wrangler deploy --config wrangler.deploy.jsonc`。
+
+`data/site-content.json` 是本次交付的公开内容快照；线上后续编辑存入 KV，可在后台导出新的备份。登录密码、Cloudflare OAuth 配置及其他凭据均不在仓库里。
+
+详见 [部署说明](DEPLOYMENT.md)。极光壁纸署名与许可保存在 `public/assets/ubuntu-wallpaper-copyright.txt`。
+
+---
+
+以下为上游原始 README，仅供来源参考；当前版本请使用上方说明。
+
 # 🏠 个人主页项目
 
 交流群聊：https://t.me/IonMagic
