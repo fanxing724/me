@@ -9,6 +9,7 @@ export default {async fetch(request, env) {
  const headers=new Headers(response.headers);
  headers.set('X-Content-Type-Options','nosniff');headers.set('Referrer-Policy','strict-origin-when-cross-origin');
  if(path==='/manage'||path==='/login'||path.startsWith('/api/'))headers.set('Cache-Control','no-store');
+ if(response.ok && (path.startsWith('/assets/')||path.startsWith('/static/'))) headers.set('Cache-Control','public, max-age=86400');
  headers.set('X-Frame-Options','DENY');
  return new Response(response.body,{status:response.status,statusText:response.statusText,headers});
 }};
@@ -238,8 +239,20 @@ async function handleRequest(request, env) {
       }
 
       // 构建位置信息
-      const locationParts = [country, region, city].filter(part => part && part !== '未知');
-      const location = locationParts.length > 0 ? locationParts.join(' ') : '未知位置';
+      let countryName = country;
+      try {
+        if (/^[A-Z]{2}$/.test(country)) countryName = new Intl.DisplayNames(['zh-CN'], { type: 'region' }).of(country);
+      } catch {}
+      const seenLocations = new Set();
+      const locationParts = [countryName, region, city]
+        .map(part => typeof part === 'string' ? part.trim() : '')
+        .filter(part => {
+          if (!part || part === '未知' || seenLocations.has(part.toLowerCase())) return false;
+          seenLocations.add(part.toLowerCase());
+          return true;
+        });
+      const location = locationParts.length > 0 ? locationParts.join(' · ') : '暂无法识别';
+      const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
       const response = {
         ip: displayIP,
@@ -248,7 +261,7 @@ async function handleRequest(request, env) {
         region: region,
         city: city,
         location: location,
-        displayText: `${displayIP}<br>(${location} 的好友)`
+        displayText: `${escapeHTML(displayIP)}<br>大致位置：${escapeHTML(location)}`
       };
 
       return new Response(JSON.stringify(response), {

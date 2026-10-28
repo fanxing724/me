@@ -1,20 +1,22 @@
-# 番星 · 极光个人主页与站点工作台
+# 番星 · 个人主页与站点工作台
 
 部署在 [724520.xyz](https://724520.xyz/) 的个人主页，基于 [IonRh/HomePage](https://github.com/IonRh/HomePage) 修改，保留原项目 MIT 许可。
 
-- 极光背景、居中个人资料、17 个网站与服务及 5 个独立社区主页入口。
-- 网站按网络与资源、代码与运维、AI 与共享、日常工具分类。
-- 网页后台支持添加、编辑、排序、分类、维护说明、个人资料、图片及 JSON 备份。
-- 后台采用 Cookie 会话，管理员密码只在 Cloudflare KV 内保存加盐哈希。
-- 运行于 Cloudflare Workers Static Assets + KV，无常驻服务器。
+- 17 个网站与服务、5 个独立社区入口；手机双列布局，网站卡片统一为紧凑尺寸。
+- 系统默认字体、清楚的正文对比度；个人资料、播放器与社区入口分别展示。
+- 原生音乐播放器支持 Meting 歌单、切歌、进度、音量、播放模式、LRC 歌词和本机文件试听，默认不自动播放。
+- [站点工作台](https://724520.xyz/manage) 与登录页采用同一深蓝配色，支持网站编辑、排序、分类、个人资料、素材和 JSON 备份。
+- Cloudflare Workers Static Assets + KV，无常驻服务器；后台使用 Cookie 会话和加盐密码哈希。
 
-源码入口为 `worker.mjs` 与 `public/`；后台源文件在 `admin/`，修改 HTML 后运行 `python3 tools/build-admin.py`。
+源码入口为 `worker.mjs` 与 `public/`。后台 HTML 位于 `admin/`，修改后运行 `python3 tools/build-admin.py`。仓库根目录的旧版 `index.html`、`static/` 与 `worker.js` 保留为上游参考，不是当前部署入口。
 
-`wrangler.jsonc` 仅提供配置模板，KV ID 为占位符。实际账号绑定放在被 Git 忽略的 `wrangler.deploy.jsonc`。部署使用 `wrangler deploy --config wrangler.deploy.jsonc`。
+`wrangler.jsonc` 是 KV ID 已占位的配置模板；实际账号绑定放在被 Git 忽略的 `wrangler.deploy.jsonc`。部署和恢复步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。
 
-`data/site-content.json` 是本次交付的公开内容快照；线上后续编辑存入 KV，可在后台导出新的备份。登录密码、Cloudflare OAuth 配置及其他凭据均不在仓库里。
+音乐使用方式见 [播放器说明](docs/music-player.md)，配置位于 `public/music.json`，后台表单暂不编辑此文件。当前使用公开网易云歌单；曲目可播放性及试听长度由第三方服务和平台权限决定。
 
-详见 [部署说明](DEPLOYMENT.md)。极光壁纸署名与许可保存在 `public/assets/ubuntu-wallpaper-copyright.txt`。
+`public/index.html` 内含公开内容快照，先显示内容再请求后台最新资料。`data/site-content.json` 保留较早的公开内容备份；线上最新内容可从后台导出，部署前可运行 `python3 tools/refresh-homepage-snapshot.py` 更新页面快照。
+
+壁纸署名见 `public/assets/ubuntu-wallpaper-copyright.txt`；备用钢琴试听片段来源与 CC BY 2.5 说明见 `public/assets/music/credits.html`。
 
 ---
 

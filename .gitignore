@@ -8,3 +8,8 @@ node_modules/
 wrangler.deploy.jsonc
 private/
 *credentials*
+
+# EdgeOne public mirror build
+dist-edgeone/
+
+.edgeone/

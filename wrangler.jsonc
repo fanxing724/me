@@ -18,6 +18,10 @@
     {
       "pattern": "724520.xyz",
       "custom_domain": true
+    },
+    {
+      "pattern": "fast.724520.xyz/*",
+      "zone_name": "724520.xyz"
     }
   ]
 }

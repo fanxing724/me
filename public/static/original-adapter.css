@@ -1,0 +1,83 @@
+/* Compatibility fixes only; visual design lives in the unmodified upstream CSS. */
+[hidden]{display:none!important}
+.content-area,.site-info,.project-info{min-width:0}
+.site-info h3,.site-info p,.project-info h3,.project-info p{overflow-wrap:anywhere}
+.site-icon,.project-icon{display:grid;place-items:center}
+a:focus-visible,button:focus-visible{outline:2px solid #74b9ff;outline-offset:4px}
+.contribution-cell{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+html{background:#152c47;overflow-x:clip}
+body{min-height:100dvh}
+
+/* Community profiles belong to the identity, separate from website services. */
+.community-section{margin-top:25px;padding-top:22px;border-top:1px solid #ffffff26}
+.community-section h2{font-size:14px;font-weight:600;line-height:1.5;margin:0 0 14px}
+.community-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.community-links a{display:flex;align-items:center;gap:8px;min-width:0;min-height:44px;padding:8px 10px;border:1px solid #ffffff30;border-radius:10px;background:#ffffff0d;color:#fff;text-decoration:none;font-size:11px;line-height:1.6}
+.community-links a>span:last-child{min-width:0;overflow-wrap:anywhere}
+.community-mark{width:23px;height:23px;flex:none;display:grid;place-items:center;background:#b6dfff1a;border-radius:7px;font:10px monospace;color:#cae9ff}
+@media(hover:hover){.community-links a:hover{background:#ffffff20;border-color:#ffffff60}}
+
+/* A quiet footer with project attribution on its own line. */
+.site-footer{max-width:1340px;margin:10px auto 0;padding:24px 20px 32px;border-top:1px solid #ffffff16;color:#d4e3ee;text-align:center;line-height:1.8}
+.site-footer::before{display:none}.site-footer p{margin:0;font-size:11px}.footer-main{letter-spacing:.5px}.footer-main span{display:inline-block;margin-left:14px;color:#c5d8e0b3}.site-footer .footer-credit{margin-top:5px;font-size:10px;opacity:.55}.site-footer a{color:inherit;font-weight:400}.site-footer a::after{display:none}
+.site-open{display:none}.site-mark{background:#b6dfff16;color:#c6e7ff;font:600 15px monospace}.site-note{display:inline-block;font-size:10px;color:#d0e4ed;border:1px solid #ffffff24;border-radius:5px;padding:2px 6px;margin-top:8px}
+@media(max-width:768px){
+ body{backdrop-filter:none;-webkit-backdrop-filter:none}
+ body:not(.dark-background){background:linear-gradient(155deg,#11293f 0%,#194358 48%,#132337 100%)!important;background-attachment:fixed!important}
+ body::before{backdrop-filter:none;-webkit-backdrop-filter:none;background:transparent}
+ .main-container{display:flex;flex-direction:column;gap:16px;padding:20px 16px;max-width:600px;margin:0 auto}
+ .sidebar,.content-area{display:contents}
+ .profile-overview{order:1;position:relative;padding:22px 20px 16px;border:1px solid #ffffff24;border-radius:20px;background:#ffffff07}
+ .profile-section{display:grid;grid-template-columns:62px minmax(0,1fr);gap:16px;align-items:start;text-align:left;margin:0}
+ .profile-avatar{margin:0}.profile-avatar img{height:62px;width:62px;border-width:2px}.avatar-decorations{display:none}
+ .profile-info{min-width:0}.status{justify-content:flex-start;gap:7px;font-size:21px;line-height:1.5;margin:0 38px 7px 0}.status>.emoji{font-size:15px}
+ .quote{font-size:13px;line-height:1.8;margin:0 0 9px;opacity:.85}.quote>.emoji{display:none}
+ .location-info{gap:4px;font-size:11px;line-height:1.8}.location,.name{justify-content:flex-start;gap:6px}
+ .social-links{position:absolute;top:13px;right:13px;margin:0;gap:6px}.social-links a{width:38px;height:38px;box-shadow:none;background:transparent;border-color:#ffffff20;border-radius:50%}
+ .tags-section{margin:17px 0 13px;gap:6px}.tag{font-size:11px;padding:4px 9px;border-color:#ffffff1f;background:#ffffff09;box-shadow:none;backdrop-filter:none}
+ .profile-overview>.skills-section{margin:0;padding:12px 0 0;border:0;border-top:1px solid #ffffff14;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+ .profile-overview>.skills-section h2,.profile-overview>br{display:none}
+ .profile-overview .stat-item{display:flex;align-items:flex-start;gap:9px;font-size:11px;line-height:1.8;color:#c5dce7}.profile-overview .stat-label{white-space:nowrap;opacity:.65}.profile-overview .stat-number{font-size:11px;line-height:1.8;font-weight:400;filter:none;overflow-wrap:anywhere}
+ .music-player{order:2}.sites-section{order:3}.community-section{order:4}.contribution-section{order:5}.projects-section{order:6}.content-area>.skills-section{order:7}
+ .music-player,.sites-section,.community-section,.contribution-section{min-width:0;width:100%;margin:0;padding:20px;border:1px solid #ffffff24;border-radius:20px;background:#ffffff07;box-shadow:none;backdrop-filter:none}
+ .sites-section h2,.community-section h2,.contribution-section h2{font-size:15px;line-height:1.6;margin:0 0 16px;gap:9px}
+ .sites-section>h2 i{font-size:13px;color:#afd5e9}
+ .sites-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .site-link{min-width:0;border-radius:13px}.site-card{height:100%;min-height:157px;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:15px 13px;border-radius:13px;border-color:#ffffff16;background:#ffffff06;backdrop-filter:none;box-shadow:none}
+ .site-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#b6dfff12;color:#c4e5f5;font-size:11px}.site-icon i{font-size:14px}
+ .site-info{width:100%}.site-info h3{font-size:13px;line-height:1.65;font-weight:600;margin-bottom:5px;overflow-wrap:anywhere}.site-info p{font-size:12px;line-height:1.8;opacity:.8;overflow-wrap:anywhere}
+ .site-open{display:block;position:absolute;top:15px;right:13px;font-size:14px;line-height:1;color:#bbd8e6;opacity:.65}.site-note{font-size:9px;padding:2px 5px;margin-top:6px}
+ .site-link[data-category=blog]{grid-column:1/-1}.site-link[data-category=blog] .site-card{flex-direction:row;align-items:center;min-height:94px;padding:18px 15px;gap:13px;background:#b3ddcf0a;border-color:#c9f3e524}.site-link[data-category=blog] .site-icon{width:38px;height:38px;flex:none;font-size:20px}.site-link[data-category=blog] .site-info{padding-right:12px}.site-link[data-category=blog] .site-info h3{font-size:15px}
+ .community-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.community-links a{font-size:12px;min-height:46px;background:#ffffff05;border-color:#ffffff1a;padding:10px}.community-mark{background:#b6dfff10}
+ .contribution-section .contribution-title{font-size:14px}.contribution-header-row{display:none}.contribution-section h2{margin-bottom:8px}.mobile-contribution-stats{margin:0;padding:0;gap:12px;border:0;background:none;grid-template-columns:repeat(4,minmax(0,1fr))}.mobile-stat-number{font-size:17px}.mobile-stat-label{font-size:9px}.contribution-summary{display:none}
+ .site-footer{max-width:568px;margin:3px 16px 0;padding:22px 8px 28px}.site-footer .footer-main{font-size:11px}.footer-main span{display:block;margin:4px 0 0;font-size:10px}.site-footer .footer-credit{font-size:9px;margin-top:10px}
+}
+@media(max-width:350px){.main-container{padding:16px 12px;gap:12px}.profile-overview,.music-player,.sites-section,.community-section,.contribution-section{padding:17px 15px;border-radius:17px}.profile-section{grid-template-columns:52px minmax(0,1fr);gap:12px}.profile-avatar img{width:52px;height:52px}.status{font-size:19px}.site-card{padding:13px 11px;min-height:164px}.site-info h3{font-size:12px}.site-info p{font-size:11px}}
+
+
+/* Native fonts with clear strokes and readable secondary text. */
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC","Microsoft YaHei","PingFang SC",sans-serif;font-weight:500}
+.site-info,.quote,.location-info,.community-links{font-weight:500}
+.quote,.location,.name,.site-info p{opacity:.95}
+.site-note,.community-links a,.tag{font-weight:500}
+/* Compact uniform cards: icon beside the title, followed by two description lines. */
+.sites-grid{grid-auto-rows:144px;align-items:stretch}
+.sites-grid>.site-link,.sites-grid>.site-link[data-category=blog]{min-width:0;height:100%;grid-column:auto;border-radius:13px}
+.sites-grid .site-card,.sites-grid .site-link[data-category=blog] .site-card{display:grid;grid-template-columns:26px minmax(0,1fr);grid-template-rows:40px 38px 18px;column-gap:10px;row-gap:5px;align-items:start;height:100%;min-height:0;padding:12px;border-radius:13px;position:relative;overflow:hidden;background:#ffffff08;border-color:#ffffff24}
+.sites-grid .site-icon,.sites-grid .site-link[data-category=blog] .site-icon{grid-column:1;grid-row:1;align-self:center;width:26px;height:26px;border-radius:8px;font-size:11px;background:#b6dfff16;color:#d7edff}
+.sites-grid .site-icon i{font-size:14px}.sites-grid .site-open{display:none}
+.sites-grid .site-info,.sites-grid .site-link[data-category=blog] .site-info{display:contents;padding:0}
+.sites-grid .site-info h3,.sites-grid .site-link[data-category=blog] .site-info h3{grid-column:2;grid-row:1;align-self:center;font-size:14px;line-height:20px;font-weight:650;margin:0;height:auto;max-height:40px;min-width:0;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow-wrap:anywhere}
+.sites-grid .site-info p{grid-column:1/-1;grid-row:2;font-size:12.5px;line-height:19px;font-weight:500;margin:0;height:38px;min-width:0;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow-wrap:anywhere;opacity:.95;color:#edf4fa}
+.sites-grid .site-note{grid-column:1/-1;grid-row:3;align-self:start;justify-self:start;max-width:100%;font-size:10px;line-height:14px;font-weight:500;margin:0;padding:1px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#edf4fa}
+.community-links{grid-auto-rows:52px;align-items:stretch}.community-links a{height:100%;min-height:0}.community-links a>span:last-child{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+@media(max-width:768px){
+ .sites-grid{gap:10px}.sites-grid .site-card,.sites-grid .site-link[data-category=blog] .site-card{column-gap:8px;background:#ffffff06;border-color:#ffffff20}
+ .sites-grid .site-info h3,.sites-grid .site-link[data-category=blog] .site-info h3{font-size:13px}
+ .sites-grid .site-info p{font-size:12px}
+ .music-titles small,.music-status,.music-lyric{opacity:1;color:#e7f1f8}
+ .location-info{color:#e7f1f8}.profile-overview .stat-label{opacity:.9}
+ .community-links a{min-height:0}
+}
