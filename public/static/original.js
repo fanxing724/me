@@ -947,7 +947,7 @@ function initCardEffects() {
         });
         
         // 添加点击动画
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function(event) {
             this.style.transform = 'translateY(-5px) scale(0.98)';
             setTimeout(() => {
                 this.style.transform = 'translateY(-8px) scale(1.03)';
@@ -1366,10 +1366,12 @@ function addPulseAnimation() {
 
 // 添加粒子背景效果
 function createParticles() {
-    const particleCount = 30;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const particleCount = matchMedia('(max-width: 768px)').matches ? 8 : 30;
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
+        particle.setAttribute('aria-hidden', 'true');
         particle.style.cssText = `
             position: fixed;
             width: ${2 + Math.random() * 3}px;
@@ -1909,19 +1911,22 @@ function initContributionAnimation() {
 // 背景切换功能
 function initBackgroundToggle() {
     const toggleButton = document.getElementById('background-toggle');
-    if (!toggleButton) return;
+    if (!toggleButton || toggleButton.dataset.initialized) return;
+    toggleButton.dataset.initialized = 'true';
     
     // 保存原始背景设置
     let originalBackground = null;
     
     // 检查本地存储的背景模式
-    const savedMode = localStorage.getItem('background-mode');
+    let savedMode;
+    try { savedMode = localStorage.getItem('background-mode'); } catch {}
     if (savedMode === 'dark') {
         document.body.classList.add('dark-background');
         removeBodyBackground();
         updateToggleIcon(true);
     }
     
+    updateToggleIcon(document.body.classList.contains('dark-background'));
     toggleButton.addEventListener('click', function() {
         const isDark = document.body.classList.contains('dark-background');
         
@@ -1929,13 +1934,13 @@ function initBackgroundToggle() {
             // 切换到图片背景
             document.body.classList.remove('dark-background');
             restoreBodyBackground();
-            localStorage.setItem('background-mode', 'image');
+            try { localStorage.setItem('background-mode', 'image'); } catch {}
             updateToggleIcon(false);
         } else {
             // 切换到黑色背景
             document.body.classList.add('dark-background');
             removeBodyBackground();
-            localStorage.setItem('background-mode', 'dark');
+            try { localStorage.setItem('background-mode', 'dark'); } catch {}
             updateToggleIcon(true);
         }
         
@@ -1968,7 +1973,8 @@ function initBackgroundToggle() {
     // 恢复body背景
     function restoreBodyBackground() {
         // 首先尝试从localStorage获取保存的背景信息
-        const savedBackgroundInfo = localStorage.getItem('background-info');
+        let savedBackgroundInfo;
+        try { savedBackgroundInfo = localStorage.getItem('background-info'); } catch {}
         let backgroundToRestore = null;
         
         if (savedBackgroundInfo) {
@@ -2007,6 +2013,8 @@ function initBackgroundToggle() {
 function updateToggleIcon(isDark) {
     const toggleButton = document.getElementById('background-toggle');
     const icon = toggleButton.querySelector('i');
+    toggleButton.setAttribute('aria-pressed', String(isDark));
+    toggleButton.setAttribute('aria-label', isDark ? '切换到图片背景' : '切换到纯色背景');
     
     if (isDark) {
         icon.className = 'fas fa-sun';
@@ -2026,7 +2034,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedMode = localStorage.getItem('background-mode');
     if (savedMode !== 'dark') {
         // 尝试从localStorage获取保存的背景信息
-        const savedBackgroundInfo = localStorage.getItem('background-info');
+        let savedBackgroundInfo;
+        try { savedBackgroundInfo = localStorage.getItem('background-info'); } catch {}
         let backgroundToSet = null;
         
         if (savedBackgroundInfo) {
@@ -2092,16 +2101,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hideAllTooltips();
         }
     });
-});
-
-// 添加页面加载动画
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
 });
 
 // 添加开发者工具检测和信息提示
@@ -2343,9 +2342,9 @@ function detectDevTools() {
      }
  
      // 创建背景切换"链接"，与其他社交按钮保持一致
-     const toggleLink = document.createElement('a');
+     const toggleLink = document.createElement('button');
      toggleLink.id = 'background-toggle';
-     toggleLink.href = '#';
+     toggleLink.type = 'button';
      toggleLink.title = '切换背景模式';
      toggleLink.innerHTML = '<i class="fas fa-moon"></i>';
  
