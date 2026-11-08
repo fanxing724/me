@@ -1,0 +1,24 @@
+{
+  "name": "fanxing-homepage-cdn",
+  "main": "gateway/worker.mjs",
+  "compatibility_date": "2026-11-08",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "cdn.724520.xyz",
+      "custom_domain": true
+    }
+  ],
+  "services": [
+    {
+      "binding": "HOME_BACKEND",
+      "service": "fanxing-homepage-admin"
+    }
+  ],
+  "assets": {
+    "directory": "./gateway/public",
+    "binding": "GATEWAY_ASSETS",
+    "run_worker_first": true
+  },
+  "preview_urls": false
+}

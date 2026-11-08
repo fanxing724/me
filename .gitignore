@@ -1,0 +1,29 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+*.log
+
+# Local Cloudflare account bindings (no credentials in source backup)
+wrangler.deploy.jsonc
+private/
+*credentials*
+
+# EdgeOne public mirror build
+dist-edgeone/
+
+.edgeone/
+
+wrangler.backend.deploy.jsonc
+
+dist-admin/
+
+wrangler.gateway.deploy.jsonc
+wrangler.entry.deploy.jsonc
+
+# Build staging and manual release packages
+.edgeone-build-*/
+.build-backups/
+*.zip
+__pycache__/
+*.pyc

@@ -1,0 +1,13 @@
+{
+  "name": "fanxing-homepage-entry",
+  "main": "entry/worker.mjs",
+  "compatibility_date": "2026-11-08",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "724520.xyz",
+      "custom_domain": true
+    }
+  ],
+  "preview_urls": false
+}

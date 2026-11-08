@@ -1,0 +1,12 @@
+{
+  "name": "fanxing-homepage",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=24"},
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build:admin": "python3 tools/build-backend.py",
+    "build:gateway": "node gateway/build.mjs",
+    "build:edgeone": "python3 tools/build-edgeone.py"
+  }
+}

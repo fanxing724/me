@@ -1,0 +1,1273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* 左侧边栏 */
+.sidebar {
+    background: rgb(255 255 255 / 4%);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    height: fit-content;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.profile-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+}
+
+.avatar-decorations {
+    position: absolute;
+    inset: 0;
+}
+
+.decoration {
+    position: absolute;
+    font-size: 24px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.decoration-1 {
+    top: -10px;
+    left: -10px;
+    animation-delay: 0s;
+}
+
+.decoration-2 {
+    top: 10px;
+    right: -15px;
+    animation-delay: 1s;
+}
+
+.decoration-3 {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.quote {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.highlight-blue {
+    color: #74b9ff;
+    font-weight: 600;
+}
+
+.highlight-pink {
+    color: #fd79a8;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgb(255 255 255 / 4%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.location, .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.8;
+}
+
+/* 标签部分 */
+.tags-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #fff;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 时间线 */
+.timeline-section {
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -26px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    background: #74b9ff;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.timeline-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.timeline-date {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* 右侧内容区域 */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* GitHub 贡献统计 - 带背景框的简洁样式 */
+.github-stats {
+    background: rgb(255 255 255 / 4%);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.stats-line {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.stats-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.stats-text {
+    color: rgba(255, 255, 255, 0.95);
+    flex: 1;
+}
+
+.highlight-number {
+    color: #74b9ff;
+    font-weight: 600;
+    font-size: 1.1em;
+    display: inline-block;
+    margin: 0 4px;
+}
+
+/* 模糊效果 */
+.blur-effect {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+}
+
+.blur-effect:hover {
+    filter: blur(0);
+}
+
+.language-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 6px;
+    margin-bottom: 2px;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.language-tag.js {
+    background: rgb(132 157 195 / 57%);
+    color: #212121;
+}
+
+.language-tag.py {
+    background: rgb(132 157 195 / 57%);
+    color: #212121;
+}
+
+.language-tag.ts {
+    background: rgb(132 157 195 / 57%);
+    color: #212121;
+}
+
+.language-tag.css {
+    background: rgb(132 157 195 / 57%);
+    color: #212121;
+}
+
+/* GitHub 贡献图样式 */
+.contribution-section {
+    background: rgb(255 255 255 / 4%);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.contribution-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 贡献图标题占位符 */
+.contribution-header-placeholder {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 贡献图标题行样式 */
+.contribution-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* 手机端统计信息样式 */
+.mobile-contribution-stats {
+    display: none;
+}
+
+.mobile-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.mobile-stat-number {
+    font-size: 16px;
+    font-weight: 700;
+    color: #74b9ff;
+    line-height: 1;
+}
+
+.mobile-stat-label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contribution-chart {
+    position: relative;
+    /* padding: 20px 0; */
+    overflow-x: auto;
+    min-height: 150px;
+}
+
+.loading-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    gap: 15px;
+    opacity: 0.7;
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #74b9ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.month-labels {
+    /* Grid layout is set dynamically by JavaScript */
+    margin-bottom: 8px;
+}
+
+.month-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: left;
+}
+
+.contribution-grid-container {
+    display: flex;
+    gap: 3px;
+}
+
+.week-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: 5px;
+    padding-top: 2px;
+}
+
+.week-label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    height: 14px;
+    line-height: 14px;
+    text-align: right;
+    width: 18px;
+}
+
+.contribution-grid {
+    display: grid;
+    grid-template-rows: repeat(7, 14px);
+    gap: 3px;
+    grid-auto-flow: column;
+    /* grid-template-columns will be set dynamically by JavaScript */
+}
+
+.contribution-cell {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    animation: cellFadeIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+@keyframes cellFadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.contribution-cell.level-0 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contribution-cell.level-1 {
+    background: rgba(116, 185, 255, 0.3);
+    border: 1px solid rgba(116, 185, 255, 0.4);
+}
+
+.contribution-cell.level-2 {
+    background: rgba(116, 185, 255, 0.5);
+    border: 1px solid rgba(116, 185, 255, 0.6);
+}
+
+.contribution-cell.level-3 {
+    background: rgba(116, 185, 255, 0.7);
+    border: 1px solid rgba(116, 185, 255, 0.8);
+}
+
+.contribution-cell.level-4 {
+    background: #74b9ff;
+    border: 1px solid #5ca3ff;
+    box-shadow: 0 0 8px rgba(116, 185, 255, 0.3);
+}
+
+
+
+.contribution-legend {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.legend-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 5px;
+}
+
+.legend-cell {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+.legend-cell.level-0 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legend-cell.level-1 {
+    background: rgba(116, 185, 255, 0.3);
+    border: 1px solid rgba(116, 185, 255, 0.4);
+}
+
+.legend-cell.level-2 {
+    background: rgba(116, 185, 255, 0.5);
+    border: 1px solid rgba(116, 185, 255, 0.6);
+}
+
+.legend-cell.level-3 {
+    background: rgba(116, 185, 255, 0.7);
+    border: 1px solid rgba(116, 185, 255, 0.8);
+}
+
+.legend-cell.level-4 {
+    background: #74b9ff;
+    border: 1px solid #5ca3ff;
+}
+
+/* 工具提示样式 */
+.contribution-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+.contribution-tooltip.show {
+    opacity: 1;
+}
+
+.tooltip-date {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.tooltip-count {
+    color: #74b9ff;
+    font-weight: 500;
+}
+
+.chart-loaded .contribution-cell {
+    animation-delay: 0s;
+}
+
+.chart-loaded .loading-placeholder {
+    display: none;
+}
+
+/* 数据源信息样式 */
+.contribution-source-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.source-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.source-indicator.source-api {
+    background: #00b894;
+    box-shadow: 0 0 6px rgba(0, 184, 148, 0.4);
+}
+
+.source-indicator.source-svg {
+    background: #fdcb6e;
+    box-shadow: 0 0 6px rgba(253, 203, 110, 0.4);
+}
+
+.source-indicator.source-generated {
+    background: #fd79a8;
+    box-shadow: 0 0 6px rgba(253, 121, 168, 0.4);
+}
+
+.source-indicator.source-unknown {
+    background: #636e72;
+}
+
+.source-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+/* 贡献摘要样式 */
+.contribution-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.summary-number {
+    font-size: 18px;
+    font-weight: 700;
+    color: #74b9ff;
+    line-height: 1;
+}
+
+.summary-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 响应式摘要 */
+@media screen and (max-width: 768px) {
+    .contribution-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+    
+    .summary-number {
+        font-size: 16px;
+    }
+    
+    .summary-label {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contribution-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .summary-number {
+        font-size: 14px;
+    }
+    
+    .summary-label {
+        font-size: 9px;
+    }
+}
+
+/* 贡献格子波浪动画 */
+.cell-wave-animation {
+    animation: cellWave 0.8s ease-out forwards;
+}
+
+@keyframes cellWave {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 增强悬停效果 */
+.contribution-cell:hover {
+    transform: scale(1.3);
+    z-index: 10;
+    border-width: 2px;
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px rgba(116, 185, 255, 0.5);
+}
+
+/* 站点和项目部分 */
+.sites-section, .projects-section, .skills-section {
+    background: rgb(255 255 255 / 4%);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.sites-section h2, .projects-section h2, .skills-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sites-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.site-card, .project-card {
+    background: rgb(255 255 255 / 8%);
+    backdrop-filter: blur(25px);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+}
+
+.project-link, .site-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link::before, .site-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.03);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-link:hover::before, .site-link:hover::before {
+    opacity: 1;
+}
+
+.project-link:active .project-card, .site-link:active .site-card {
+    transform: scale(0.98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-link:hover .project-card, .site-link:hover .site-card {
+    background: rgb(255 255 255 / 15%);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.project-link:hover .project-icon, .site-link:hover .site-icon {
+    transform: scale(1.05);
+}
+
+.project-icon, .site-icon {
+    transition: transform 0.3s ease;
+}
+
+.site-icon, .project-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.site-icon img, .project-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.site-info h3, .project-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.site-info p, .project-info p {
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* 技能图标 */
+.skills-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 15px;
+}
+
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(15px);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.skill-icon:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.skill-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    body {
+        backdrop-filter: blur(8px);
+    }
+    
+    body::before {
+        backdrop-filter: blur(15px);
+    }
+    
+    .main-container {
+        grid-template-columns: 280px 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .sidebar {
+        padding: 20px;
+        backdrop-filter: blur(20px);
+    }
+    
+    .github-stats {
+        padding: 20px;
+        backdrop-filter: blur(20px);
+    }
+    
+    .sites-section, .projects-section, .skills-section {
+        backdrop-filter: blur(20px);
+    }
+    
+    /* 中等屏幕背景切换按钮 */
+    .background-toggle {
+        bottom: 75px;
+        right: 18px;
+        width: 48px;
+        height: 48px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        backdrop-filter: blur(6px);
+        background-attachment: scroll;
+    }
+    
+    body::before {
+        backdrop-filter: blur(12px);
+    }
+    
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        order: -1;
+        backdrop-filter: blur(18px);
+    }
+    
+    .content-area {
+        order: 0;
+    }
+    
+    .sites-grid, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-icons {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 10px;
+    }
+    
+    .skill-icon {
+        width: 50px;
+        height: 50px;
+        backdrop-filter: blur(12px);
+    }
+    
+    .skill-icon img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .github-stats {
+        padding: 18px;
+        gap: 12px;
+        backdrop-filter: blur(18px);
+    }
+    
+    .sites-section, .projects-section, .skills-section {
+        backdrop-filter: blur(18px);
+    }
+    
+    .site-card, .project-card {
+        backdrop-filter: blur(12px);
+    }
+    
+    /* 移动端统计样式 */
+    .stats-line {
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-start;
+        font-size: 15px;
+    }
+    
+    .stats-label {
+        min-width: auto;
+        font-size: 14px;
+    }
+    
+    .language-tag {
+        font-size: 11px;
+        padding: 2px 5px;
+        margin-right: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .github-stats {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .stats-line {
+        font-size: 14px;
+    }
+    
+    .stats-label {
+        font-size: 13px;
+    }
+    
+    .highlight-number {
+        font-size: 16px;
+    }
+    
+    .language-tag {
+        font-size: 10px;
+        padding: 1px 4px;
+    }
+}
+
+@media (max-width: 360px) {
+    /* 针对更小屏幕的优化 */
+    .contribution-graph {
+        min-width: 320px;
+    }
+    
+    .contribution-day {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .legend-color {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+.site-card:hover {
+    background: none;
+    transform: none;
+    box-shadow: none;
+}
+
+footer {
+    text-align: center;
+    /* margin-top: 2rem; */
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+footer a {
+    color: #74b9ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0 2px;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(116, 185, 255, 0.6);
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #74b9ff, #a8d6ff);
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* 背景切换开关样式 */
+.background-toggle {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+}
+
+.background-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.background-toggle:active {
+    transform: scale(0.95);
+}
+
+.background-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.background-toggle:hover i {
+    transform: rotate(10deg);
+}
+
+/* 黑色背景模式 */
+body.dark-background {
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 15, 0.95) 0%, 
+        rgba(25, 25, 25, 0.9) 50%, 
+        rgba(35, 35, 35, 0.85) 100%
+    ) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+
+body.dark-background::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* 移动端响应式样式 */
+@media screen and (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .sidebar {
+        padding: 20px;
+    }
+    
+    /* 手机端隐藏贡献图，显示统计数据 */
+    .contribution-chart {
+        display: none;
+    }
+    
+    .mobile-contribution-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-top: 10px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .contribution-header-placeholder {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+    
+    .contribution-header-row {
+        margin-bottom: 0;
+    }
+    
+    /* 手机端标题样式 */
+    .contribution-header-placeholder .contribution-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .contribution-grid {
+        grid-template-rows: repeat(7, 11px);
+        gap: 2px;
+        /* grid-template-columns will be set dynamically by JavaScript */
+    }
+    
+    .contribution-cell {
+        width: 11px;
+        height: 11px;
+        border-radius: 2px;
+    }
+    
+    .contribution-cell:hover {
+        transform: scale(1.5);
+    }
+    
+    .week-label {
+        width: 15px;
+        height: 11px;
+        line-height: 11px;
+        font-size: 9px;
+    }
+    
+    .legend-cell {
+        width: 11px;
+        height: 11px;
+    }
+    
+    .contribution-tooltip {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    .contribution-section {
+        padding: 20px;
+    }
+    
+    .contribution-section h2 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mobile-contribution-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+    
+    .mobile-stat-number {
+        font-size: 14px;
+    }
+    
+    .mobile-stat-label {
+        font-size: 9px;
+    }
+    
+    .legend-label {
+        font-size: 9px;
+        margin: 0 2px;
+    }
+    
+    .legend-cell {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .contribution-source-info {
+        font-size: 10px;
+    }
+    
+    /* 移动端背景切换按钮 */
+    .background-toggle {
+        bottom: 70px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+}

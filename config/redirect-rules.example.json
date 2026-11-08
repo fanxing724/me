@@ -1,0 +1,21 @@
+{
+  "name": "Personal homepage redirects",
+  "kind": "zone",
+  "phase": "http_request_dynamic_redirect",
+  "rules": [
+    {
+      "description": "Root-domain admin navigation",
+      "expression": "(http.host eq \"724520.xyz\" and http.request.uri.path in {\"/manage\" \"/login\" \"/logout\"} and http.request.method in {\"GET\" \"HEAD\"})",
+      "action": "redirect",
+      "action_parameters": {"from_value": {"status_code": 302, "target_url": {"value": "https://admin.724520.xyz/manage"}, "preserve_query_string": false}},
+      "enabled": true
+    },
+    {
+      "description": "Homepage to CDN gateway",
+      "expression": "(http.host eq \"724520.xyz\" and http.request.uri.path eq \"/\" and http.request.method in {\"GET\" \"HEAD\"})",
+      "action": "redirect",
+      "action_parameters": {"from_value": {"status_code": 302, "target_url": {"value": "https://cdn.724520.xyz/"}, "preserve_query_string": true}},
+      "enabled": true
+    }
+  ]
+}

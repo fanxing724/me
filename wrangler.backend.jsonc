@@ -1,0 +1,45 @@
+{
+  "name": "fanxing-homepage-admin",
+  "main": "backend/worker.mjs",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./dist-admin",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "MY_HOME_KV",
+      "id": "00000000000000000000000000000000"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "PAGE_VIEWS",
+        "class_name": "PageViewCounter",
+        "script_name": "fanxing-homepage"
+      },
+      {
+        "name": "SITE_SETTINGS",
+        "class_name": "HomepageSettings"
+      }
+    ]
+  },
+  "routes": [
+    {
+      "pattern": "admin.724520.xyz",
+      "custom_domain": true
+    }
+  ],
+  "migrations": [
+    {
+      "tag": "homepage-settings-v1",
+      "new_sqlite_classes": [
+        "HomepageSettings"
+      ]
+    }
+  ],
+  "preview_urls": false
+}
