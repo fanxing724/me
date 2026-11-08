@@ -1,3 +1,14 @@
+<!-- fanxing-style:start -->
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://fanxing724.github.io/new-make/fanxing724/projects/me/cover.light.svg">
+  <img alt="番星 · 个人主页" src="https://fanxing724.github.io/new-make/fanxing724/projects/me/cover.svg" width="100%">
+</picture>
+
+**一个入口，收好我的网站、音乐和日常折腾。**
+
+番星 / 星轨手记 · [项目名片](https://fanxing724.github.io/new-make/fanxing724/projects/me/intro.md)
+<!-- fanxing-style:end -->
+
 # 番星 · 个人主页与自定义后台
 
 原生 HTML/CSS/JavaScript 个人主页，配套独立管理后台、Cloudflare / EdgeOne 双线路和浏览器测速入口。没有常驻服务器，也不需要前端框架。
